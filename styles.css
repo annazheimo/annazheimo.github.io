@@ -414,3 +414,18 @@ header {
 .hero-points li::marker, .points li::marker, .hero-list li::marker, .meta-points li::marker{
   color: var(--text-main);
 }
+@media (max-width: 760px){
+  .grid-hero{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .grid-hero .photo{
+    order: 2;
+    margin-top: 24px;
+  }
+
+  .grid-hero > div:not(.photo){
+    order: 1;
+  }
+}
