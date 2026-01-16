@@ -429,3 +429,8 @@ header {
     order: 1;
   }
 }
+@media (max-width: 760px){
+  .nav-list a{
+    white-space: nowrap;
+  }
+}
