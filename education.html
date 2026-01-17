@@ -7,18 +7,34 @@
   <link rel="stylesheet" href="./styles.css" />
 </head>
 <body class=\"page-education\">
-  <header>
-    <div class="container">
-      <nav class="nav">
-  <ul class="nav-list">
-    <li><a href="index.html">Главная</a></li>
-    <li><a href="process.html">Процесс работы</a></li>
-    <li><a href="education.html">Образование</a></li>
-    <li><a href="contacts.html">Контакты</a></li>
-  </ul>
-</nav>
-    </div>
-  </header>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="index.html">Анна Жеймо</a>
+
+    <button class="burger" type="button" aria-label="Меню" aria-expanded="false" aria-controls="mobileMenu">
+      ☰
+    </button>
+
+    <nav class="nav-desktop" aria-label="Основное меню">
+      <ul class="nav-list">
+        <li><a href="index.html">Главная</a></li>
+        <li><a href="process.html">Процесс работы</a></li>
+        <li><a href="education.html">Образование</a></li>
+        <li><a href="contacts.html">Контакты</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <nav class="nav-mobile" id="mobileMenu" aria-label="Мобильное меню">
+    <ul class="nav-mobile-list">
+      <li><a href="index.html">Главная</a></li>
+      <li><a href="process.html">Процесс работы</a></li>
+      <li><a href="education.html">Образование</a></li>
+      <li><a href="contacts.html">Контакты</a></li>
+    </ul>
+  </nav>
+</header>
+
 
   <main class="container">
     <h2>Образование</h2>
@@ -226,6 +242,40 @@
       });
     })();
   </script>
+<script>
+  (function () {
+    const burger = document.querySelector('.burger');
+    const menu = document.getElementById('mobileMenu');
+
+    if (!burger || !menu) return;
+
+    function closeMenu() {
+      menu.classList.remove('is-open');
+      burger.setAttribute('aria-expanded', 'false');
+    }
+
+    burger.addEventListener('click', () => {
+      const isOpen = menu.classList.toggle('is-open');
+      burger.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    // close on link click
+    menu.addEventListener('click', (e) => {
+      const a = e.target.closest('a');
+      if (a) closeMenu();
+    });
+
+    // close on Esc
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeMenu();
+    });
+
+    // close if resizing to desktop
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 720) closeMenu();
+    });
+  })();
+</script>
 
 </body>
 </html>
