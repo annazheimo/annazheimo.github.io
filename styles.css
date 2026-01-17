@@ -88,7 +88,7 @@ h1{
 h2{
   font-size:28px;
   line-height:1.2;
-  margin:0 0 14px;
+  margin:0 0 0px;
   letter-spacing:-.01em;
 }
 h3{
@@ -386,12 +386,14 @@ header {
 
 /* hero typography consistency (main page) */
 .hero-name{
-  font-size: 2.4rem;
-  line-height: 1.05;
+  font-size: 1.9rem;   /* было ~2.4 */
+  line-height: 1.1;
   font-weight: 600;
-  margin: 0 0 1.25rem 0;
+  margin: 0 0 1.2rem 0;
   color: var(--text-main);
 }
+
+
 .hero-lead{
   font-size: 1.6rem;
   line-height: 1.35;
@@ -434,12 +436,6 @@ header {
     white-space: nowrap;
   }
 }
-  
-.hero-name {
-  font-size: 18px !important;
-  line-height: 1.4 !important;
-  font-weight: 600 !important;
-}
 
 .lead,
 .meta,
@@ -447,4 +443,40 @@ header {
   font-size: 16px !important;
   line-height: 1.6 !important;
   font-weight: 400 !important;
+}
+
+
+/* HEADER FULL WIDTH */
+header {
+  width: 100%;
+}
+
+header .container {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding-left: var(--pad);
+  padding-right: var(--pad);
+}
+
+/* MOBILE NAV — TWO ROWS, NO HORIZONTAL SCROLL */
+@media (max-width: 768px) {
+  .nav-list {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px 18px; /* row gap / column gap */
+  }
+
+  .nav-list li {
+    white-space: nowrap;
+  }
+
+  body {
+    overflow-x: hidden;
+  }
+}
+
+.nav-list a[aria-current="page"] {
+  text-decoration: underline;
+  text-underline-offset: 6px;
+  text-decoration-thickness: 1px;
 }
